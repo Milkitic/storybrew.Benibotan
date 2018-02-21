@@ -41,6 +41,24 @@ namespace StorybrewScripts
 
             body.Fade(startTime + (27639 - 17031), 1);
 
+            var arrow = lay_fore.CreateSprite(@"SB\2dx_31.png");
+            double arrow_deg = 25, arrow_x = 300, arrow_y = 125, length = 600, length2 = 5;
+            double arrow_r = arrow_deg / 180 * Math.PI;
+            arrow.Move(startTime + (24738 - 17031), startTime + (24987 - 17031), arrow_x + length * Math.Cos(arrow_r),
+                       arrow_y - length * Math.Sin(arrow_r), arrow_x, arrow_y);
+            arrow.Rotate(startTime + (24987 - 17031), -(arrow_deg - 20) / 180 * Math.PI);
+            arrow.Fade(startTime + (24987 - 17031) + 100, 1);
+            arrow.Move(startTime + (24987 - 17031), startTime + (24987 - 17031) + shakeDelay, arrow_x, arrow_y,
+                       arrow_x - length2 * Math.Cos(arrow_r), arrow_y + length2 * Math.Sin(arrow_r));
+            arrow.Rotate(startTime + (24987 - 17031), startTime + (24987 - 17031) + shakeDelay,
+                      -(arrow_deg - 20) / 180 * Math.PI, -(arrow_deg - 20 + 3) / 180 * Math.PI);
+            arrow.Move(startTime + (24987 - 17031) + shakeDelay, startTime + (24987 - 17031) + shakeDelay * 2,
+                       arrow_x - length2 * Math.Cos(arrow_r), arrow_y + length2 * Math.Sin(arrow_r), arrow_x + 10, arrow_y - 9);
+            arrow.Rotate(startTime + (24987 - 17031) + shakeDelay, startTime + (24987 - 17031) + shakeDelay * 2,
+                      -(arrow_deg - 20 + 3) / 180 * Math.PI, -(arrow_deg - 20 + 10) / 180 * Math.PI);
+            arrow.Fade(startTime + (27639 - 17031), 1);
+
+
             int animationInterval = 70;
             int closedDelay = 100;
             var eye = lay_fore.CreateSprite(@"SB\2dx_70.png", OsbOrigin.Centre, new Vector2(320, 221));
@@ -112,6 +130,23 @@ namespace StorybrewScripts
                     eye.Fade(startTime + (say_time[i] - 17031) + ani_interval * 4 + j * ani_interval * 4, 1);
                 }
             }
+            var mouth2 = lay_fore.CreateSprite(@"SB\2dx_39.png", OsbOrigin.Centre, new Vector2(228, 264));
+            mouth2.Fade(startTime + (25236 - 17031), startTime + (27639 - 17031), 1, 1);
+            mouth2.ScaleVec(startTime + (25236 - 17031), startTime + (25236 - 17031) + 150, 0.9, 0.5, 0.9, 0.9);
+
+            var red = lay_fore.CreateSprite(@"SB\2dx_88.png", OsbOrigin.Centre, new Vector2(219, 240));
+            red.Fade(startTime + (25236 - 17031) - 250, startTime + (25236 - 17031) + 250, 0, 1);
+            red.Fade(startTime + (27639 - 17031), 1);
+
+            var heart = lay_fore.CreateSprite(@"SB\2dx_37.png", OsbOrigin.Centre, new Vector2(203, 218));
+            heart.Fade(startTime + (25236 - 17031) + 250, startTime + (25236 - 17031) + 250 + 600, 0, 1);
+            heart.Scale(startTime + (25236 - 17031) + 250, startTime + (25236 - 17031) + 250 + 600, 0, 1);
+            heart.Fade(startTime + (27639 - 17031), 1);
+            var heart2 = lay_fore.CreateSprite(@"SB\2dx_37.png", OsbOrigin.Centre, new Vector2(255, 231));
+            heart2.Fade(startTime + (25236 - 17031) + 250, startTime + (25236 - 17031) + 250 + 600, 0, 1);
+            heart2.Scale(startTime + (25236 - 17031) + 250, startTime + (25236 - 17031) + 250 + 600, 0, 0.95);
+            heart2.Fade(startTime + (27639 - 17031), 1);
+            heart2.Rotate(startTime + (25236 - 17031) + 250, 0.1);
         }
     }
 }
