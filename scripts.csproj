@@ -61,6 +61,7 @@
     <Compile Include="BGPurple.cs" />
     <Compile Include="BGPurpleStatic.cs" />
     <Compile Include="BGPurpleStatic2.cs" />
+    <Compile Include="BlackCover.cs" />
     <Compile Include="BlackPanel.cs" />
     <Compile Include="BlackPanel2.cs" />
     <Compile Include="CoverScene.cs" />
