@@ -69,6 +69,7 @@
     <Compile Include="Decoration2.cs" />
     <Compile Include="Flowers1.cs" />
     <Compile Include="FoxAnimation.cs" />
+    <Compile Include="FoxAnimationDecoration.cs" />
     <Compile Include="Hito1.cs" />
     <Compile Include="HitoNormal.cs" />
     <Compile Include="HitoNormal2.cs" />
