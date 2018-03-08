@@ -33,7 +33,7 @@ namespace StorybrewScripts
                 cover2.Rotate(37584, deg);
                 //cover2.Color(37584, 0, 0, 0);
                 cover2.Move(37584, (i + 1) * length * Math.Sin(deg), (i + 1) * length * Math.Cos(deg));
-                cover2.ScaleVec(37584, 37998, vec_length, 2, 0, 2);
+                cover2.ScaleVec(37584, 38081, vec_length, 2, 0, 2);
             }
 
         }
