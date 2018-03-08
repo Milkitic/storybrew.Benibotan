@@ -70,20 +70,39 @@ namespace StorybrewScripts
                                     new Vector2(355, 230),
                                     new Vector2(290, 205),
                                     new Vector2(230, 220),
-                                    new Vector2(145, 215)};
-            rot = new double[] { 0.85, 0.2, 0.5, -0.3, 0.65, -0.4, 0.5 };
-            int fade_time = 28882 - 28468-30;
+                                    new Vector2(145, 215),
+
+                                    new Vector2(58, 351),
+                                    new Vector2(125, 335),
+                                    new Vector2(180, 370),
+                                    new Vector2(263, 335),
+                                    new Vector2(340, 343),
+                                    new Vector2(425, 345),
+                                    new Vector2(531, 355),
+                                    };
+            rot = new double[] { 0.85, 0.2, 0.5, -0.3, 0.65, -0.4, 0.5,
+                                 -1.05, 0.5, -0.7, -0.3, -0.6, -0.5, 0.5 };
+            int fade_time = 28882 - 28468 - 30;
             int interval = 250;
-            for (int i = 0; i < pos.Length; i++)
+            for (int i = 0; i < pos.Length / 2; i++)
             {
                 var flower = lay_fore.CreateSprite("SB\\2dx_90.png");
                 flower.Move(start_time + i * interval, pos[i]);
                 flower.Rotate(start_time + i * interval, rot[i]);
                 flower.Scale(start_time + i * interval, start_time + fade_time + i * interval, 0, 0.7);
-                flower.Scale(start_time + fade_time + i * interval, start_time + fade_time * 2 + i * interval, 0.7, 0);
-                flower.Fade(start_time + fade_time + i * interval, start_time + fade_time * 2 + i * interval, 1, 0);
+                flower.Scale(start_time + fade_time + i * interval, start_time + fade_time * 2 + i * interval - 30, 0.7, 0);
+                flower.Fade(start_time + fade_time + i * interval, start_time + fade_time * 2 + i * interval - 30, 1, 0);
             }
-
+            start_time = startTime + (33274 - 27639);
+            for (int i = pos.Length / 2; i < pos.Length; i++)
+            {
+                var flower = lay_fore.CreateSprite("SB\\2dx_90.png");
+                flower.Move(start_time + (i - pos.Length / 2) * interval, pos[i]);
+                flower.Rotate(start_time + (i - pos.Length / 2) * interval, rot[i]);
+                flower.Scale(start_time + (i - pos.Length / 2) * interval, start_time + fade_time + (i - pos.Length / 2) * interval, 0, 0.7);
+                flower.Scale(start_time + fade_time + (i - pos.Length / 2) * interval, start_time + fade_time * 2 + (i - pos.Length / 2) * interval - 30, 0.7, 0);
+                flower.Fade(start_time + fade_time + (i - pos.Length / 2) * interval, start_time + fade_time * 2 + (i - pos.Length / 2) * interval - 30, 1, 0);
+            }
             // fox & girl
             int inteval = 120;
             var hito = lay_fore.CreateAnimation(@"SB\Ani3\a.png", 8, inteval, OsbLoopType.LoopForever);
