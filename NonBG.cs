@@ -17,8 +17,8 @@ namespace StorybrewScripts
         public override void Generate()
         {
             StoryboardLayer lay_none = GetLayer("None");
-            lay_none.CreateSprite("BG.jpg");
-
+            var bg = lay_none.CreateSprite("BG.jpg");
+            bg.Fade(0, 0);
         }
     }
 }

@@ -58,6 +58,33 @@ namespace StorybrewScripts
                 leaf3.ScaleVec(startTime + (item + leafSpeed * 2 - 27639), startTime + (item + leafSpeed * 3 - 27639), 1, 1, 0, 1);
                 leaf3.ScaleVec(startTime + (item + leafSpeed * 3 - 27639), startTime + (item + leafSpeed * 4 - 27639), 0, 1, 1, 1);
             }
+
+            // heart shadow
+            Vector2[] pos;
+            int start_time = startTime + (28468 - 27639);
+            double[] rot;
+
+            pos = new Vector2[] {   new Vector2(568, 235),
+                                    new Vector2(505, 247),
+                                    new Vector2(445, 220),
+                                    new Vector2(355, 230),
+                                    new Vector2(290, 205),
+                                    new Vector2(230, 220),
+                                    new Vector2(145, 215)};
+            rot = new double[] { 0.85, 0.2, 0.5, -0.3, 0.65, -0.4, 0.5 };
+            int fade_time = 28882 - 28468-30;
+            int interval = 250;
+            for (int i = 0; i < pos.Length; i++)
+            {
+                var flower = lay_fore.CreateSprite("SB\\2dx_90.png");
+                flower.Move(start_time + i * interval, pos[i]);
+                flower.Rotate(start_time + i * interval, rot[i]);
+                flower.Scale(start_time + i * interval, start_time + fade_time + i * interval, 0, 0.7);
+                flower.Scale(start_time + fade_time + i * interval, start_time + fade_time * 2 + i * interval, 0.7, 0);
+                flower.Fade(start_time + fade_time + i * interval, start_time + fade_time * 2 + i * interval, 1, 0);
+            }
+
+            // fox & girl
             int inteval = 120;
             var hito = lay_fore.CreateAnimation(@"SB\Ani3\a.png", 8, inteval, OsbLoopType.LoopForever);
             int y = 170;
@@ -155,7 +182,7 @@ namespace StorybrewScripts
             tail_2.MoveX(startTime + (34103 - 27639), startTime + (36258 - 27639), -155, 645);
             tail_2.Scale(startTime + (34103 - 27639), 0.5);
             tail_2.FlipH(startTime + (34103 - 27639), startTime + (36258 - 27639));
-            
+
             tail_2.StartLoopGroup(startTime + (34103 - 27639), 5);
             tail_2.Fade(0, 0);
             tail_2.MoveY(0, inteval2, y + 5, y + 5);
@@ -175,7 +202,7 @@ namespace StorybrewScripts
             tail_2_hid.MoveX(startTime + (34103 - 27639), startTime + (36258 - 27639), -180, 620);
             tail_2_hid.Scale(startTime + (34103 - 27639), 0.5);
             tail_2_hid.FlipH(startTime + (34103 - 27639), startTime + (36258 - 27639));
-           
+
             tail_2_hid.StartLoopGroup(startTime + (34103 - 27639), 5);
             tail_2_hid.Fade(0, 1);
             tail_2_hid.MoveY(0, inteval2, y - 8, y - 8);
@@ -205,6 +232,8 @@ namespace StorybrewScripts
             fox2.MoveY(inteval2 * 3, inteval2 * 4, y - 10, y - 10);
             fox2.MoveY(inteval2 * 4, inteval2 * 5, y, y);
             fox2.EndGroup();
+
+
         }
     }
 }
