@@ -52,6 +52,7 @@
   </Target>
   -->
   <ItemGroup>
+    <Compile Include="AnotherScene.cs" />
     <Compile Include="Bamboo1.cs" />
     <Compile Include="Bamboo2.cs" />
     <Compile Include="BGGreen.cs" />
