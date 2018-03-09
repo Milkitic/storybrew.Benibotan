@@ -17,7 +17,8 @@ namespace StorybrewScripts
 
         [Configurable]
         public int StartTime = 5926;
-
+        [Configurable]
+        public int endOffset = 0;
         public override void Generate()
         {
             StoryboardLayer lay_fore = GetLayer("Fore");
@@ -194,7 +195,7 @@ namespace StorybrewScripts
             Ani1_2.Fade(StartTime + (15374 - 5926), 1);
             Ani1_2.FlipH(StartTime + (15374 - 5926), StartTime + (15374 - 5926));
             Ani1_2.Move(StartTime + (15374 - 5926), StartTime + (16617 - 5926), 160, 480, 160, 480);
-            Ani1_2.ScaleVec(0, StartTime + (15705 - 5926), StartTime + (16451 - 5926), 1, 1, 1, 1.1);  
+            Ani1_2.ScaleVec(0, StartTime + (15705 - 5926), StartTime + (16451 - 5926), 1, 1, 1, 1.1);
 
             var Bell1_2 = lay_fore.CreateSprite(@"SB\2dx_24.png", OsbOrigin.CentreLeft, new Vector2(155, 240));
             Bell1_2.Rotate(StartTime + (15374 - 5926), 1.1);
@@ -215,6 +216,16 @@ namespace StorybrewScripts
             Bell2_2.MoveY(StartTime + (16617 - 5926), 442);
             Bell2_2.Rotate(OsbEasing.Out, StartTime + (16617 - 5926), StartTime + (16865 - 5926), 0.8, 1.3);
 
+            if (endOffset > 0)
+            {
+                hey1.Move(StartTime + (17031 - 5926), StartTime + (17031 + endOffset - 5926), 160, 480, 160, 480 + 200);
+                hey2.Move(StartTime + (17031 - 5926), StartTime + (17031 + endOffset - 5926), 480, 480, 480, 480 + 200);
+                Bell1_2.MoveY(StartTime + (17031 - 5926), StartTime + (17031 + endOffset - 5926), 442, 442 + 200);
+                Bell2_2.MoveY(StartTime + (17031 - 5926), StartTime + (17031 + endOffset - 5926), 442, 442 + 200);
+                Tail1.Move(StartTime + (17031 - 5926), StartTime + (17031 + endOffset - 5926), 460, 410, 460, 410 + 200);
+                Tail2.Move(StartTime + (17031 - 5926), StartTime + (17031 + endOffset - 5926), 180, 410, 180, 410 + 200);
+
+            }
         }
     }
 }

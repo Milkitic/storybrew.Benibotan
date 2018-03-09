@@ -16,40 +16,51 @@ namespace StorybrewScripts
     {
         [Configurable]
         public int startTime = -537;
+        [Configurable]
+        public int fadeInTime = 0;
         public override void Generate()
         {
             StoryboardLayer lay_cover = GetLayer("Cover");
 
             var door1 = lay_cover.CreateSprite(@"SB\2dx_87.png", OsbOrigin.CentreRight);
             door1.Fade(startTime, 1);
-            door1.Scale(startTime + (537 - 205), startTime + (537 + 2297), 1, 1.8);
-            door1.MoveX(0, startTime + (537 + 788), startTime + (537 + 1948), 320, 0);
+            door1.Scale(startTime + (537 - 205), startTime + (537 + 2297) - fadeInTime / 2d, 1, 1.8);
+            door1.MoveX(0, startTime + (537 + 788) - fadeInTime / 2d, startTime + (537 + 1948) - fadeInTime / 2d, 320, 0);
 
             var door2 = lay_cover.CreateSprite(@"SB\2dx_87.png", OsbOrigin.CentreLeft);
             door2.Fade(startTime, 1);
-            door2.Scale(startTime + (537 - 205), startTime + (537 + 2297), 1, 1.8);
-            door2.MoveX(0, startTime + (537 + 788), startTime + (537 + 1948), 320, 640);
+            door2.Scale(startTime + (537 - 205), startTime + (537 + 2297) - fadeInTime / 2d, 1, 1.8);
+            door2.MoveX(0, startTime + (537 + 788) - fadeInTime / 2d, startTime + (537 + 1948) - fadeInTime / 2d, 320, 640);
 
 
             var cover = lay_cover.CreateSprite(@"SB\2dx_109.png", OsbOrigin.BottomRight);
             cover.Fade(startTime, 1);
-            cover.Scale(startTime + (537 - 205), startTime + (537 + 2297), 1, 1.8);
+            cover.Scale(startTime + (537 - 205), startTime + (537 + 2297) - fadeInTime / 2d, 1, 1.8);
 
             var cover2 = lay_cover.CreateSprite(@"SB\2dx_109.png", OsbOrigin.BottomLeft);
             cover2.Fade(startTime, 1);
-            cover2.Scale(startTime + (537 - 205), startTime + (537 + 2297), 1, 1.8);
-            cover2.FlipH(startTime, startTime);
+            cover2.Scale(startTime + (537 - 205), startTime + (537 + 2297) - fadeInTime / 2d, 1, 1.8);
+            cover2.FlipH(startTime - fadeInTime, startTime - fadeInTime);
 
             var cover3 = lay_cover.CreateSprite(@"SB\2dx_109.png", OsbOrigin.TopRight);
             cover3.Fade(startTime, 1);
-            cover3.Scale(startTime + (537 - 205), startTime + (537 + 2297), 1, 1.8);
-            cover3.FlipV(startTime, startTime);
+            cover3.Scale(startTime + (537 - 205), startTime + (537 + 2297) - fadeInTime / 2d, 1, 1.8);
+            cover3.FlipV(startTime - fadeInTime, startTime - fadeInTime);
 
             var cover4 = lay_cover.CreateSprite(@"SB\2dx_109.png", OsbOrigin.TopLeft);
             cover4.Fade(startTime, 1);
-            cover4.Scale(startTime + (537 - 205), startTime + (537 + 2297), 1, 1.8);
-            cover4.FlipH(startTime, startTime);
-            cover4.FlipV(startTime, startTime); 
+            cover4.Scale(startTime + (537 - 205), startTime + (537 + 2297) - fadeInTime / 2d, 1, 1.8);
+            cover4.FlipH(startTime - fadeInTime, startTime - fadeInTime);
+            cover4.FlipV(startTime - fadeInTime, startTime - fadeInTime);
+            if (fadeInTime > 0)
+            {
+                door1.Fade(startTime - fadeInTime, startTime, 0, 1);
+                door2.Fade(startTime - fadeInTime, startTime, 0, 1);
+                cover.Fade(startTime - fadeInTime, startTime, 0, 1);
+                cover2.Fade(startTime - fadeInTime, startTime, 0, 1);
+                cover3.Fade(startTime - fadeInTime, startTime, 0, 1);
+                cover4.Fade(startTime - fadeInTime, startTime, 0, 1);
+            }
         }
     }
 }
