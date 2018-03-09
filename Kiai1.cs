@@ -16,54 +16,56 @@ namespace StorybrewScripts
     {
         [Configurable]
         public int startTime = 37584;
+        [Configurable]
+        public int startOffset = 0;
         public override void Generate()
         {
             StoryboardLayer lay_fore = GetLayer("Fore");
 
             var flower1 = lay_fore.CreateSprite(@"SB\2dx_128.png");
-            flower1.Move(startTime, 560, 220);
-            flower1.Scale(startTime, 0.7);
-            flower1.Rotate(startTime, startTime + (43550 - 37584), 0, 13);
+            flower1.Move(startTime + startOffset, 560, 220);
+            flower1.Scale(startTime + startOffset, 0.7);
+            flower1.Rotate(startTime + startOffset, startTime + (43550 - 37584), 0, 13);
 
             var flower2 = lay_fore.CreateSprite(@"SB\2dx_128.png");
-            flower2.Move(startTime, 155, 100);
-            flower2.Rotate(startTime, startTime + (43550 - 37584), 0, 13);
+            flower2.Move(startTime + startOffset, 155, 100);
+            flower2.Rotate(startTime + startOffset, startTime + (43550 - 37584), 0, 13);
 
             var flower3 = lay_fore.CreateSprite(@"SB\2dx_68.png");
-            flower3.Move(startTime, 135, 195);
-            flower3.Rotate(startTime, startTime + (43550 - 37584), 0, 14);
+            flower3.Move(startTime + startOffset, 135, 195);
+            flower3.Rotate(startTime + startOffset, startTime + (43550 - 37584), 0, 14);
 
             var flower4 = lay_fore.CreateSprite(@"SB\2dx_129.png");
-            flower4.Move(startTime, 540, 320);
-            flower4.Rotate(startTime, startTime + (43550 - 37584), 0, -13);
+            flower4.Move(startTime + startOffset, 540, 320);
+            flower4.Rotate(startTime + startOffset, startTime + (43550 - 37584), 0, -13);
 
             var flower5 = lay_fore.CreateSprite(@"SB\2dx_129.png");
-            flower5.Move(startTime, 215, 180);
-            flower5.Scale(startTime, 0.7);
-            flower5.Rotate(startTime, startTime + (43550 - 37584), 0, -13);
+            flower5.Move(startTime + startOffset, 215, 180);
+            flower5.Scale(startTime + startOffset, 0.7);
+            flower5.Rotate(startTime + startOffset, startTime + (43550 - 37584), 0, -13);
 
             var shadow = lay_fore.CreateSprite(@"SB\2dx_75.png", OsbOrigin.Centre, new Vector2(325, 240));
-            shadow.Fade(startTime, 0.6);
-            shadow.Scale(startTime, 0.95);
-            shadow.MoveY(startTime, startTime + (43550 - 37584), 322, 252);
+            shadow.Fade(startTime + startOffset, 0.6);
+            shadow.Scale(startTime + startOffset, 0.95);
+            shadow.MoveY(startTime + startOffset, startTime + (43550 - 37584), 322, 252);
 
             var hito = lay_fore.CreateSprite(@"SB\2dx_74.png");
-            hito.Scale(startTime, 0.95);
-            hito.MoveY(startTime, startTime + (43550 - 37584), 310, 240);
+            hito.Scale(startTime + startOffset, 0.95);
+            hito.MoveY(startTime + startOffset, startTime + (43550 - 37584), 310, 240);
 
             var eye1 = lay_fore.CreateSprite(@"SB\2dx_116.png");
-            eye1.Fade(startTime, 1);
-            eye1.Scale(startTime, 0.95);
-            eye1.Move(startTime, startTime + (43550 - 37584), 353, 169, 353, 99);
+            eye1.Fade(startTime + startOffset, 1);
+            eye1.Scale(startTime + startOffset, 0.95);
+            eye1.Move(startTime + startOffset, startTime + (43550 - 37584), 353, 169, 353, 99);
             eye1.Fade(startTime + (1534 - 125), 0);
             eye1.Fade(startTime + (1782 - 125), 1);
             eye1.Fade(startTime + (3357 - 125), 0);
             eye1.Fade(startTime + (3606 - 125), 1);
 
             var eye2 = lay_fore.CreateSprite(@"SB\2dx_92.png");
-            eye2.Fade(startTime, 0);
-            eye2.Scale(startTime, 0.95);
-            eye2.Move(startTime, startTime + (5097 - 125), 353, 169, 353, 109);
+            eye2.Fade(startTime + startOffset, 0);
+            eye2.Scale(startTime + startOffset, 0.95);
+            eye2.Move(startTime + startOffset, startTime + (5097 - 125), 353, 169, 353, 109);
             eye2.Fade(startTime + (1534 - 125), 1);
             eye2.Fade(startTime + (1617 - 125), 0);
             eye2.Fade(startTime + (1700 - 125), 1);
@@ -74,9 +76,9 @@ namespace StorybrewScripts
             eye2.Fade(startTime + (3606 - 125), 0);
 
             var eye3 = lay_fore.CreateSprite(@"SB\2dx_93.png");
-            eye3.Fade(startTime, 0);
-            eye3.Scale(startTime, 0.95);
-            eye3.Move(startTime, startTime + (5097 - 125), 353, 169, 353, 109);
+            eye3.Fade(startTime + startOffset, 0);
+            eye3.Scale(startTime + startOffset, 0.95);
+            eye3.Move(startTime + startOffset, startTime + (5097 - 125), 353, 169, 353, 109);
             eye3.Fade(startTime + (1617 - 125), 1);
             eye3.Fade(startTime + (1700 - 125), 0);
             eye3.Fade(startTime + (3357 - 125), 1);
@@ -131,10 +133,10 @@ namespace StorybrewScripts
 
 
             var lantern1 = lay_fore.CreateSprite(@"SB\2dx_91.png", OsbOrigin.Centre, new Vector2(507, -135));
-            lantern1.MoveY(startTime, newStartTime + newTime, 10, 10);
+            lantern1.MoveY(startTime + startOffset, newStartTime + newTime, 10, 10);
 
             var lantern2 = lay_fore.CreateSprite(@"SB\2dx_91.png", OsbOrigin.Centre, new Vector2(126, -135));
-            lantern2.MoveY(startTime, newStartTime + newTime, 220, 220);
+            lantern2.MoveY(startTime + startOffset, newStartTime + newTime, 220, 220);
 
         }
     }
