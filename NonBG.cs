@@ -12,12 +12,12 @@ using System.Linq;
 
 namespace StorybrewScripts
 {
-    public class NonBG : StoryboardObjectGenerator
+    public class NonBg : StoryboardObjectGenerator
     {
         public override void Generate()
         {
-            StoryboardLayer lay_none = GetLayer("None");
-            var bg = lay_none.CreateSprite("BG.jpg");
+            StoryboardLayer layNone = GetLayer("None");
+            var bg = layNone.CreateSprite("BG.jpg");
             bg.Fade(0, 0);
         }
     }
