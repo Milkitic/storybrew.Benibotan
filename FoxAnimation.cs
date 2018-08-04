@@ -19,6 +19,9 @@ namespace StorybrewScripts
         public int StartTime = 5926;
         [Configurable]
         public int endOffset = 0;
+        [Configurable]
+        public int EndTime = -1;
+
         public override void Generate()
         {
             StoryboardLayer lay_fore = GetLayer("Fore");
@@ -225,6 +228,15 @@ namespace StorybrewScripts
                 Tail1.Move(StartTime + (17031 - 5926), StartTime + (17031 + endOffset - 5926), 460, 410, 460, 410 + 200);
                 Tail2.Move(StartTime + (17031 - 5926), StartTime + (17031 + endOffset - 5926), 180, 410, 180, 410 + 200);
 
+            }
+            if (EndTime != -1)
+            {
+                hey1.Fade(EndTime, 1);
+                hey2.Fade(EndTime, 1);
+                Bell1_2.Fade(EndTime, 1);
+                Bell2_2.Fade(EndTime, 1);
+                Tail1.Fade(EndTime, 1);
+                Tail2.Fade(EndTime, 1);
             }
         }
     }

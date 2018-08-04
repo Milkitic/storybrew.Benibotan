@@ -93,17 +93,64 @@ namespace StorybrewScripts
             light1.Move(start_time, 280, 196);
             light1.Additive(start_time, end_time);
             light1.StartLoopGroup(start_time, (int)((end_time - start_time) / light_interval / 2));
-            light1.Fade(0, light_interval, 0.1, 0.2);
-            light1.Fade(light_interval, light_interval * 2, 0.2, 0.1);
+            light1.Fade(0, light_interval, 0.15, 0.3);
+            light1.Fade(light_interval, light_interval * 2, 0.3, 0.15);
             light1.EndGroup();
 
             var light2 = lay_fore.CreateSprite("SB\\2dx_18.png");
             light2.Move(start_time, 412.9, 247.9);
             light2.Additive(start_time, end_time);
             light2.StartLoopGroup(start_time, (int)((end_time - start_time) / light_interval / 2));
-            light2.Fade(0, light_interval, 0.15, 0.25);
-            light2.Fade(light_interval, light_interval * 2, 0.25, 0.15);
+            light2.Fade(0, light_interval, 0.2, 0.3);
+            light2.Fade(light_interval, light_interval * 2, 0.3, 0.2);
             light2.EndGroup();
+
+            var eye1 = lay_fore.CreateSprite("SB\\2dx_82.png", OsbOrigin.Centre, new Vector2(307, 183));
+            eye1.Fade(start_time, 1);
+            eye1.Fade(end_time, 1);
+            var eye2 = lay_fore.CreateSprite("SB\\2dx_64.png", OsbOrigin.Centre, new Vector2(307, 183));
+            var eye3 = lay_fore.CreateSprite("SB\\2dx_65.png", OsbOrigin.Centre, new Vector2(307, 183));
+
+            int[] wink_time = { 77694, 1, 78854, 1 };
+            ani_interval = 130;
+            for (int i = 0; i < wink_time.Length - 1; i += 2)
+            {
+                eye1.Fade(start_time + (wink_time[i] - 77363) + ani_interval * 1, 0);
+                eye2.Fade(start_time + (wink_time[i] - 77363) + ani_interval * 1, 1);
+                eye2.Fade(start_time + (wink_time[i] - 77363) + ani_interval * 2, 0);
+                eye3.Fade(start_time + (wink_time[i] - 77363) + ani_interval * 2, 1);
+                eye3.Fade(start_time + (wink_time[i] - 77363) + ani_interval * 3, 0);
+                eye2.Fade(start_time + (wink_time[i] - 77363) + ani_interval * 3, 1);
+                eye2.Fade(start_time + (wink_time[i] - 77363) + ani_interval * 4, 0);
+                eye1.Fade(start_time + (wink_time[i] - 77363) + ani_interval * 4, 1);
+
+            }
+            var tear = lay_fore.CreateSprite("SB\\2dx_23.png", OsbOrigin.TopLeft, new Vector2(335, 200));
+            tear.Fade(start_time + 663, start_time + 663 + (1160 - 663) / 2f, 0.5, 1);
+            tear.Scale(start_time + 663, start_time + 663 + (1160 - 663) / 2f, 0.5, 1);
+            tear.MoveY(start_time + 663 + (1160 - 663) / 2f, start_time + 1160, 198, 201);
+            tear.Fade(start_time + 663 + (1160 - 663) / 2f, start_time + 1160, 1, 0);
+            var tear2 = lay_fore.CreateSprite("SB\\2dx_23.png", OsbOrigin.TopLeft, new Vector2(335, 200));
+            tear2.Fade(start_time + 1823, start_time + 1823 + (2403 - 1823) / 2f, 0.5, 1);
+            tear2.Scale(start_time + 1823, start_time + 1823 + (2403 - 1823) / 2f, 0.5, 1);
+            tear2.MoveY(start_time + 1823 + (2403 - 1823) / 2f, start_time + 2403, 198, 201);
+            tear2.Fade(start_time + 1823 + (2403 - 1823) / 2f, start_time + 2403, 1, 0);
+
+            // var fox_hand = lay_fore.CreateSprite("SB\\2dx_19.png", OsbOrigin.TopLeft, new Vector2(382, 257));
+            // fox_hand.Fade(start_time, start_time + (78440 - 77363), 1, 1);
+            var paper = lay_fore.CreateSprite("SB\\2dx_19.png", OsbOrigin.TopLeft, new Vector2(382, 257));
+            paper.Fade(start_time, start_time + (78440 - 77363), 1, 1);
+            var paper2 = lay_fore.CreateSprite("SB\\2dx_20.png");
+            paper2.Fade(start_time + (78440 - 77363), start_time + (78689 - 77363), 1, 1);
+            paper2.ScaleVec(start_time + (78440 - 77363), start_time + (78689 - 77363), 1, 0.75, 1, 1);
+            paper2.Move(start_time + (78440 - 77363), start_time + (78689 - 77363), 392, 267, 389, 257);
+            var paper3 = lay_fore.CreateSprite("SB\\2dx_21.png", OsbOrigin.Centre, new Vector2(382, 255));
+            paper3.Fade(start_time + (78689 - 77363), end_time, 1, 1);
+
+            var cover = lay_fore.CreateSprite("SB\\w.png", OsbOrigin.TopLeft, new Vector2(-5, -5));
+            cover.Scale(start_time + (80015 - 77363), end_time, 1.1, 1.1);
+            cover.Fade(start_time + (80015 - 77363), end_time, 0, 1);
+
         }
     }
 }
