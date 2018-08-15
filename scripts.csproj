@@ -66,11 +66,14 @@
     <Compile Include="BlackPanel.cs" />
     <Compile Include="BlackPanel2.cs" />
     <Compile Include="CoverScene.cs" />
+    <Compile Include="CoverScene2.cs" />
     <Compile Include="Decoration.cs" />
     <Compile Include="Decoration2.cs" />
+    <Compile Include="EndCover.cs" />
     <Compile Include="Flowers1.cs" />
     <Compile Include="FoxAnimation.cs" />
     <Compile Include="FoxAnimationDecoration.cs" />
+    <Compile Include="FoxAnimationDecoration2.cs" />
     <Compile Include="Hito1.cs" />
     <Compile Include="HitoNormal.cs" />
     <Compile Include="HitoNormal2.cs" />
@@ -83,8 +86,10 @@
     <Compile Include="PanelTitle2.cs" />
     <Compile Include="RunScene.cs" />
     <Compile Include="SceneTransform.cs" />
+    <Compile Include="StartCover.cs" />
     <Compile Include="WordPanel.cs" />
     <Compile Include="WordPanel2.cs" />
+    <Compile Include="WordPanel3.cs" />
   </ItemGroup>
   <ItemGroup />
 </Project>
