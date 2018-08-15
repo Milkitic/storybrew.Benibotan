@@ -16,24 +16,25 @@ namespace StorybrewScripts
     {
         public override void Generate()
         {
-            StoryboardLayer layCover = GetLayer("Cover");
+            StoryboardLayer lay_cover = GetLayer("Cover");
+            double x, y;
 
             for (int i = 0; i < 11; i++)
             {
-                double x = i * 64;
-                const double y = 240;
-                var pattern = layCover.CreateSprite(@"SB\w2.png");
-                pattern.Move(OsbEasing.None, 4434, 5097, x, y, x, y);
-                pattern.ScaleVec(OsbEasing.None, 4434, 5097, 0, 1, 1, 1);
-                pattern.Fade(0, 4434, 5097, 0, 1);
-                pattern.Fade(0, 5097, 6423, 1, 1);
+                x = i * 64;
+                y = 240;
+                var Pattern = lay_cover.CreateSprite(@"SB\w2.png");
+                Pattern.Move(OsbEasing.None, 4434, 5097, x, y, x, y);
+                Pattern.ScaleVec(OsbEasing.None, 4434, 5097, 0, 1, 1, 1);
+                Pattern.Fade(0, 4434, 5097, 0, 1);
+                Pattern.Fade(0, 5097, 6423, 1, 1);
             }
 
-            var leaf = layCover.CreateSprite(@"SB\2dx_27.png");
+            var leaf = lay_cover.CreateSprite(@"SB\2dx_27.png");
             leaf.Move(5097, 6423, 195, 240, 195, 240);
-            var leaf2 = layCover.CreateSprite(@"SB\2dx_27.png");
+            var leaf2 = lay_cover.CreateSprite(@"SB\2dx_27.png");
             leaf2.Move(5346, 6423, 320, 240, 320, 240);
-            var leaf3 = layCover.CreateSprite(@"SB\2dx_27.png");
+            var leaf3 = lay_cover.CreateSprite(@"SB\2dx_27.png");
             leaf3.Move(5595, 6423, 445, 240, 445, 240);
         }
     }

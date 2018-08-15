@@ -12,19 +12,19 @@ using System.Linq;
 
 namespace StorybrewScripts
 {
-    public class BgPurple : StoryboardObjectGenerator
+    public class BGPurple : StoryboardObjectGenerator
     {
         public override void Generate()
         {
-            StoryboardLayer layBack = GetLayer("Back");
+            StoryboardLayer lay_back = GetLayer("Back");
             double x;
             for (int i = 0; i < 30; i++)
             {
                 x = i * 22;
-                var bg = layBack.CreateSprite(@"SB\2dx_8.png", OsbOrigin.CentreLeft);
-                bg.Move(0, 5926, 6423, x + 640, 240, x, 240);
-                bg.Fade(11064, 1);
-                bg.Move(0, 10567, 11064, x, 240, x - 640, 240);
+                var BG = lay_back.CreateSprite(@"SB\2dx_8.png", OsbOrigin.CentreLeft);
+                BG.Move(0, 5926, 6423, x + 640, 240, x, 240);
+                BG.Fade(11064, 1);
+                BG.Move(0, 10567, 11064, x, 240, x - 640, 240);
             }
 
             double y;
@@ -34,10 +34,10 @@ namespace StorybrewScripts
                 {
                     x = i * (170 - 170 / 5) - 85;
                     y = j * (58 - 29 / 2 - 1);
-                    var pattern = layBack.CreateSprite(@"SB\2dx_5.png", OsbOrigin.TopLeft);
-                    pattern.Move(0, 5926, 6423, x + 640, y, x, y);
-                    pattern.Fade(11064, 0.9);
-                    pattern.Move(0, 10567, 11064, x, y, x - 640, y);
+                    var Pattern = lay_back.CreateSprite(@"SB\2dx_5.png", OsbOrigin.TopLeft);
+                    Pattern.Move(0, 5926, 6423, x + 640, y, x, y);
+                    Pattern.Fade(11064, 0.9);
+                    Pattern.Move(0, 10567, 11064, x, y, x - 640, y);
                 }
             }
         }

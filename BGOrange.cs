@@ -12,21 +12,21 @@ using System.Linq;
 
 namespace StorybrewScripts
 {
-    public class BgOrange : StoryboardObjectGenerator
+    public class BGOrange : StoryboardObjectGenerator
     {
         [Configurable]
-        public int StartTime = 125;
+        public int startTime = 125;
         [Configurable]
-        public int EndTime = 5097;
+        public int endTime = 5097;
         public override void Generate()
         {
-            StoryboardLayer layBack = GetLayer("Back");
+            StoryboardLayer lay_back = GetLayer("Back");
             double x;
             for (int i = 0; i < 30; i++)
             {
                 x = i * 22;
-                OsbSprite orange = layBack.CreateSprite(@"SB\2dx_7.png", OsbOrigin.CentreLeft);
-                orange.Move(OsbEasing.None, StartTime, EndTime, x, 240, x, 240);
+                OsbSprite orange = lay_back.CreateSprite(@"SB\2dx_7.png", OsbOrigin.CentreLeft);
+                orange.Move(OsbEasing.None, startTime, endTime, x, 240, x, 240);
             }
             double y;
             for (int j = -1; j < 9; j++)
@@ -36,9 +36,9 @@ namespace StorybrewScripts
                     x = i * (68 - 3.5);
                     if (j % 2 != 0) x -= 32;
                     y = j * (78 * 0.75 - 5);
-                    var pattern = layBack.CreateSprite(@"SB\2dx_76.png", OsbOrigin.TopLeft);
-                    pattern.Move(OsbEasing.None, StartTime, EndTime, x, y, x, y);
-                    pattern.Fade(StartTime, 0.3);
+                    var Pattern = lay_back.CreateSprite(@"SB\2dx_76.png", OsbOrigin.TopLeft);
+                    Pattern.Move(OsbEasing.None, startTime, endTime, x, y, x, y);
+                    Pattern.Fade(startTime, 0.3);
                 }
             }
         }

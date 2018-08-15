@@ -12,22 +12,22 @@ using System.Linq;
 
 namespace StorybrewScripts
 {
-    public class BgGreenStatic2 : StoryboardObjectGenerator
+    public class BGGreenStatic2 : StoryboardObjectGenerator
     {
         [Configurable]
-        public int StartTime = 27639;
+        public int startTime = 27639;
         [Configurable]
-        public int EndTime = 37584;
+        public int endTime = 37584;
         public override void Generate()
         {
-            StoryboardLayer layBack = GetLayer("Back");
+            StoryboardLayer lay_back = GetLayer("Back");
             double x;
             for (int i = 0; i < 29; i++)
             {
                 x = i * 22;
-                var bg = layBack.CreateSprite(@"SB\2dx_6.png", OsbOrigin.CentreLeft);
-                bg.Move(StartTime, x, 240);
-                bg.Fade(EndTime, 1);
+                var BG = lay_back.CreateSprite(@"SB\2dx_6.png", OsbOrigin.CentreLeft);
+                BG.Move(startTime, x, 240);
+                BG.Fade(endTime, 1);
             }
             double y;
             for (int j = 0; j < 7; j++)
@@ -36,23 +36,23 @@ namespace StorybrewScripts
                 {
                     x = i * (78 - 3) - 3;
                     y = j * (78 - 3) - 3;
-                    var pattern = layBack.CreateSprite(@"SB\2dx_98.png", OsbOrigin.TopLeft);
-                    pattern.Move(StartTime, x, y);
-                    pattern.Fade(EndTime, 0.9);
+                    var Pattern = lay_back.CreateSprite(@"SB\2dx_98.png", OsbOrigin.TopLeft);
+                    Pattern.Move(startTime, x, y);
+                    Pattern.Fade(endTime, 0.9);
                 }
             }
 
 
-            var left = layBack.CreateSprite(@"SB\2dx_63.png");
-            left.Move(StartTime, 83, 293);
-            left.Fade(StartTime, 0.8);
-            left.FlipH(StartTime, EndTime);
-            left.Scale(StartTime, 1);
+            var left = lay_back.CreateSprite(@"SB\2dx_63.png");
+            left.Move(startTime, 83, 293);
+            left.Fade(startTime, 0.8);
+            left.FlipH(startTime, endTime);
+            left.Scale(startTime, 1);
 
-            var right = layBack.CreateSprite(@"SB\2dx_78.png");
-            right.Move(StartTime, 563, 280);
-            right.Fade(StartTime, 0.8);
-            right.Scale(StartTime, EndTime, 0.88, 0.88);
+            var right = lay_back.CreateSprite(@"SB\2dx_78.png");
+            right.Move(startTime, 563, 280);
+            right.Fade(startTime, 0.8);
+            right.Scale(startTime, endTime, 0.88, 0.88);
 
         }
     }

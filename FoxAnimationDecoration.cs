@@ -14,35 +14,38 @@ namespace StorybrewScripts
 {
     public class FoxAnimationDecoration : StoryboardObjectGenerator
     {
-        [Configurable] public bool IsFirst = true;
-
+        [Configurable]
+        public bool isFirst = true;
         public override void Generate()
         {
-            StoryboardLayer layFore = GetLayer("Fore");
+            StoryboardLayer lay_fore = GetLayer("Fore");
 
-            if (!IsFirst) return;
-
-            Vector2[] pos =
+            Vector2[] pos;
+            double[] scale;
+            string[] name;
+            bool[] rot;
+            int start_time, end_time;
+            if (isFirst)
             {
-                new Vector2(75, 240),
-                new Vector2(160, 280),
-                new Vector2(255, 215),
-                new Vector2(405, 250),
-                new Vector2(545, 240)
-            };
-            double[] scale = { 0.9, 0.6, 1, 1, 0.7 };
-            string[] name = { "2dx_68.png", "2dx_127.png", "2dx_126.png", "2dx_127.png", "2dx_126.png" };
-            bool[] rot = { true, false, true, false, true };
-            const int startTime = 59131, endTime = 69738;
-            const int fadeTime = startTime + (6921 - 6423);
-
-            for (int i = 0; i < name.Length; i++)
-            {
-                var flower = layFore.CreateSprite(System.IO.Path.Combine("SB", name[i]));
-                flower.Move(startTime, pos[i]);
-                flower.Scale(startTime, scale[i]);
-                flower.Fade(startTime, fadeTime, 0, 1);
-                flower.Rotate(startTime, endTime, 0, 25 * (rot[i] ? 1 : -1));
+                pos = new Vector2[] { new Vector2(75, 240),
+                                    new Vector2(160, 280),
+                                    new Vector2(255, 215),
+                                    new Vector2(405, 250),
+                                    new Vector2(545, 240) };
+                scale = new double[] { 0.9, 0.6, 1, 1, 0.7 };
+                name = new string[] { "2dx_68.png", "2dx_127.png", "2dx_126.png", "2dx_127.png", "2dx_126.png" };
+                rot = new bool[] { true, false, true, false, true };
+                start_time = 59131;
+                int fade_time = start_time + (6921 - 6423);
+                end_time = 69738;
+                for (int i = 0; i < name.Length; i++)
+                {
+                    var flower = lay_fore.CreateSprite(System.IO.Path.Combine("SB", name[i]));
+                    flower.Move(start_time, pos[i]);
+                    flower.Scale(start_time, scale[i]);
+                    flower.Fade(start_time, fade_time, 0, 1);
+                    flower.Rotate(start_time, end_time, 0, 25 * (rot[i] == true ? 1 : -1));
+                }
             }
         }
     }

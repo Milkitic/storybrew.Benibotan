@@ -16,25 +16,25 @@ namespace StorybrewScripts
     {
         public override void Generate()
         {
-            StoryboardLayer layFore = GetLayer("Fore");
-            var flower1 = layFore.CreateSprite(@"SB\2dx_126.png");
+            StoryboardLayer lay_fore = GetLayer("Fore");
+            var flower1 = lay_fore.CreateSprite(@"SB\2dx_126.png");
             flower1.Move(788, 560, 220);
             flower1.Scale(788, 0.7);
             flower1.Rotate(788, 5097, 0, 13);
 
-            var flower2 = layFore.CreateSprite(@"SB\2dx_126.png");
+            var flower2 = lay_fore.CreateSprite(@"SB\2dx_126.png");
             flower2.Move(788, 155, 100);
             flower2.Rotate(788, 5097, 0, 13);
 
-            var flower3 = layFore.CreateSprite(@"SB\2dx_68.png");
+            var flower3 = lay_fore.CreateSprite(@"SB\2dx_68.png");
             flower3.Move(788, 135, 195);
             flower3.Rotate(788, 5097, 0, 14);
 
-            var flower4 = layFore.CreateSprite(@"SB\2dx_127.png");
+            var flower4 = lay_fore.CreateSprite(@"SB\2dx_127.png");
             flower4.Move(788, 540, 320);
             flower4.Rotate(788, 5097, 0, -13);
 
-            var flower5 = layFore.CreateSprite(@"SB\2dx_127.png");
+            var flower5 = lay_fore.CreateSprite(@"SB\2dx_127.png");
             flower5.Move(788, 215, 180);
             flower5.Scale(788, 0.7);
             flower5.Rotate(788, 5097, 0, -13);

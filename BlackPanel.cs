@@ -18,38 +18,38 @@ namespace StorybrewScripts
         public int EnterTime = 5926;
         public override void Generate()
         {
-            StoryboardLayer layFore = GetLayer("Fore");
+            StoryboardLayer lay_fore = GetLayer("Fore");
 
-            const int x = 320, y = 240;
+            int x = 320, y = 240;
 
-            var black = layFore.CreateSprite(@"SB\panel.jpg");
+            var black = lay_fore.CreateSprite(@"SB\panel.jpg");
             black.Move(0, 5926, 6423, x + 640, y, x, y);
             black.Fade(11064, 1);
             black.Move(0, 10567, 11064, x, y, x - 640, y);
 
-            var tl = layFore.CreateSprite(@"SB\2dx_30.png", OsbOrigin.TopLeft);
-            tl.Move(0, 5926, 6423, x + 640, y - 2, x, y - 2);
-            tl.Move(0, 10567, 11064, x, y - 2, x - 640, y - 2);
-            tl.Fade(11064, 1);
-            tl.FlipV(5926, 5926);
-            tl.FlipH(5926, 5926);
+            var TL = lay_fore.CreateSprite(@"SB\2dx_30.png", OsbOrigin.TopLeft);
+            TL.Move(0, 5926, 6423, x + 640, y - 2, x, y - 2);
+            TL.Move(0, 10567, 11064, x, y - 2, x - 640, y - 2);
+            TL.Fade(11064, 1);
+            TL.FlipV(5926, 5926);
+            TL.FlipH(5926, 5926);
 
-            var tr = layFore.CreateSprite(@"SB\2dx_30.png", OsbOrigin.TopRight);
-            tr.Move(0, 5926, 6423, x + 640, y - 2, x, y - 2);
-            tr.Move(0, 10567, 11064, x, y - 2, x - 640, y - 2);
-            tr.Fade(11064, 1);
-            tr.FlipV(5926, 5926);
+            var TR = lay_fore.CreateSprite(@"SB\2dx_30.png", OsbOrigin.TopRight);
+            TR.Move(0, 5926, 6423, x + 640, y - 2, x, y - 2);
+            TR.Move(0, 10567, 11064, x, y - 2, x - 640, y - 2);
+            TR.Fade(11064, 1);
+            TR.FlipV(5926, 5926);
 
-            var bl = layFore.CreateSprite(@"SB\2dx_30.png", OsbOrigin.BottomLeft);
-            bl.Move(0, 5926, 6423, x + 640, y + 2, x, y + 2);
-            bl.Move(0, 10567, 11064, x, y + 2, x - 640, y + 2);
-            bl.Fade(11064, 1);
-            bl.FlipH(5926, 5926);
+            var BL = lay_fore.CreateSprite(@"SB\2dx_30.png", OsbOrigin.BottomLeft);
+            BL.Move(0, 5926, 6423, x + 640, y + 2, x, y + 2);
+            BL.Move(0, 10567, 11064, x, y + 2, x - 640, y + 2);
+            BL.Fade(11064, 1);
+            BL.FlipH(5926, 5926);
 
-            var br = layFore.CreateSprite(@"SB\2dx_30.png", OsbOrigin.BottomRight);
-            br.Move(0, 5926, 6423, x + 640, y + 2, x, y + 2);
-            br.Move(0, 10567, 11064, x, y + 2, x - 640, y + 2);
-            br.Fade(11064, 1);
+            var BR = lay_fore.CreateSprite(@"SB\2dx_30.png", OsbOrigin.BottomRight);
+            BR.Move(0, 5926, 6423, x + 640, y + 2, x, y + 2);
+            BR.Move(0, 10567, 11064, x, y + 2, x - 640, y + 2);
+            BR.Fade(11064, 1);
         }
     }
 }

@@ -12,22 +12,22 @@ using System.Linq;
 
 namespace StorybrewScripts
 {
-    public class BgGreenStatic : StoryboardObjectGenerator
+    public class BGGreenStatic : StoryboardObjectGenerator
     {
         [Configurable]
-        public int StartTime = 92280;
+        public int startTime = 92280;
         [Configurable]
-        public int EndTime = 105871;
+        public int endTime = 105871;
         public override void Generate()
         {
-            StoryboardLayer layBack = GetLayer("Back");
+            StoryboardLayer lay_back = GetLayer("Back");
             double x;
             for (int i = 0; i < 29; i++)
             {
                 x = i * 22;
-                var bg = layBack.CreateSprite(@"SB\2dx_6.png", OsbOrigin.CentreLeft);
-                bg.Move(StartTime, x, 240);
-                bg.Fade(EndTime, 1);
+                var BG = lay_back.CreateSprite(@"SB\2dx_6.png", OsbOrigin.CentreLeft);
+                BG.Move(startTime, x, 240);
+                BG.Fade(endTime, 1);
             }
             double y;
             for (int j = 0; j < 7; j++)
@@ -36,9 +36,9 @@ namespace StorybrewScripts
                 {
                     x = i * (78 - 3) - 3;
                     y = j * (78 - 3) - 3;
-                    var pattern = layBack.CreateSprite(@"SB\2dx_98.png", OsbOrigin.TopLeft);
-                    pattern.Move(StartTime, x, y);
-                    pattern.Fade(EndTime, 0.9);
+                    var Pattern = lay_back.CreateSprite(@"SB\2dx_98.png", OsbOrigin.TopLeft);
+                    Pattern.Move(startTime, x, y);
+                    Pattern.Fade(endTime, 0.9);
                 }
             }
         }
